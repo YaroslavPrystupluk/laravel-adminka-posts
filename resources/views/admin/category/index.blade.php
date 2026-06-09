@@ -11,11 +11,6 @@
             <li class="breadcrumb-item active" aria-current="page">Categories</li>
         </ol>
     </div>
-    </div>
-    <!--end::Row-->
-    </div>
-    <!--end::Container-->
-    </div>
     <!--end::App Content Header-->
     <!--begin::App Content-->
     <div class="app-content">
