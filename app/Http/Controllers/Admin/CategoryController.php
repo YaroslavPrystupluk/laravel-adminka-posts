@@ -53,8 +53,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $categories = Category::query()->findOrFail($id);
-        return view('admin.category.create', ['categories' => $categories]);
+        $category = Category::query()->findOrFail($id);
+        return view('admin.category.edit', ['category' => $category]);
     }
 
     /**

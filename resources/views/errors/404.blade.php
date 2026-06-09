@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE 4 | 404 Error Page</title>
+    <title>Error Page</title>
 
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -52,14 +52,8 @@
                     <div class="display-1 fw-bold text-primary lh-1 mb-3">404</div>
                     <h1 class="h3 mb-3">Oops! Page not found.</h1>
                     <p class="text-secondary mb-4">
-                        We could not find the page you were looking for. Meanwhile, you may return to the
-                        dashboard or try searching for what you need.
+                        We could not find the page you were looking for.
                     </p>
-
-                    <a href={{ route('adnin.main.index') }} class="btn btn-outline-secondary">
-                        <i class="bi bi-arrow-left me-1" aria-hidden="true"></i>
-                        Back to dashboard
-                    </a>
                 </div>
             </div>
         </div>

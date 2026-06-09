@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\NotFoundController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
