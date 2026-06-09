@@ -44,9 +44,12 @@
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->title }}</td>
                                             <td>
-                                                <a href={{ route('categories.edit', ['category' => $category->id]) }}
-                                                    class="btn btn-warning"><i class="bi bi-pencil"></i></a>
-                                                <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                                <a class="btn btn-warning" href={{ route('categories.edit', ['category' => $category->id]) }}
+                                                    ><i class="bi bi-pencil"></i></a>
+                                                <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="POST" >
+                                                    @method('DELETE')
+                                                <button class="btn btn-danger" type="submit" ><i class="bi bi-trash"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
