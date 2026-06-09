@@ -18,7 +18,7 @@
         content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard, accessible admin panel, WCAG compliant" />
 
     <meta name="supported-color-schemes" content="light dark" />
-    <link rel="preload" href={{ asset('assets/admin/css/adminlte.css') }} as="style" />
+    <link rel="preload" href="{{ asset('assets/admin/css/adminlte.css') }}" as="style" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
         integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q=" crossorigin="anonymous" media="print"
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
         crossorigin="anonymous" />
 
-    <link rel="stylesheet" href={{ asset('assets/admin/css/adminlte.css') }} />
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.css') }}" />
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -42,7 +42,7 @@
                     </li>
 
                     <li class="nav-item d-none d-md-block">
-                        <a href={{ route('home') }} target="_blank" class="nav-link">
+                        <a href="{{ route('home') }}" target="_blank" class="nav-link">
                             <i class="bi bi-grid-1x2 me-1" aria-hidden="true"></i>
                             Home
                         </a>
@@ -71,7 +71,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src={{ asset('assets/admin/assets/img/user1-128x128.jpg') }}
+                                        <img src="{{ asset('assets/admin/assets/img/user1-128x128.jpg') }}"
                                             alt="User Avatar" class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -93,7 +93,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src={{ asset('assets/admin/assets/img/user8-128x128.jpg') }}
+                                        <img src="{{ asset('assets/admin/assets/img/user8-128x128.jpg') }}"
                                             alt="User Avatar" class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -116,7 +116,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src={{ asset('assets/admin/assets/img/user3-128x128.jpg') }}
+                                        <img src="{{ asset('assets/admin/assets/img/user3-128x128.jpg') }}"
                                             alt="User Avatar" class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -219,14 +219,14 @@
                     <!--begin::User Menu Dropdown-->
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src={{ asset('assets/admin/assets/img/user2-160x160.jpg') }}
+                            <img src="{{ asset('assets/admin/assets/img/user2-160x160.jpg') }}"
                                 class="user-image rounded-circle shadow" alt="User Image" />
                             <span class="d-none d-md-inline">Alexander Pierce</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <!--begin::User Image-->
                             <li class="user-header text-bg-primary">
-                                <img src={{ asset('assets/admin/assets/img/user2-160x160.jpg') }}
+                                <img src="{{ asset('assets/admin/assets/img/user2-160x160.jpg') }}"
                                     class="rounded-circle shadow" alt="User Image" />
                                 <p>
                                     Alexander Pierce - Web Developer
@@ -272,9 +272,9 @@
             <!--begin::Sidebar Brand-->
             <div class="sidebar-brand">
                 <!--begin::Brand Link-->
-                <a href={{ route('adnin.main.index') }} class="brand-link">
+                <a href="{{ route('adnin.main.index') }}" class="brand-link">
                     <!--begin::Brand Image-->
-                    <img src={{ asset('assets/admin/assets/img/AdminLTELogo.png') }} alt="AdminLTE Logo"
+                    <img src="{{ asset('assets/admin/assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                         class="brand-image opacity-75 shadow" />
                     <!--end::Brand Image-->
                     <!--begin::Brand Text-->
@@ -292,15 +292,21 @@
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"
                         aria-label="Main navigation" data-accordion="false" id="navigation">
                         <li class="nav-item">
-                            <a href={{ route('adnin.main.index') }} class="nav-link">
+                            <a href="{{ route('adnin.main.index') }}" class="nav-link">
                                 <i class="nav-icon bi bi-speedometer"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href={{ route('categories.index') }} class="nav-link">
+                            <a href="{{ route('categories.index') }}" class="nav-link">
                                 <i class="bi bi-bookmark"></i>
                                 <p>Categories</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('post.index') }}" class="nav-link">
+                                <i class="bi bi-chat-square-text"></i>
+                                <p>Posts</p>
                             </a>
                         </li>
                     </ul>
@@ -371,9 +377,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
-    <script src={{ asset('assets/admin/js/adminlte.js') }}></script>
-    <script src={{ asset('assets/jquery-4.0.0.min.js') }}></script>
-    <script src={{ asset('assets/admin/js/main.js') }}></script>
+    <script src="{{ asset('assets/admin/js/adminlte.js') }}"></script>
+    <script src="{{ asset('assets/jquery-4.0.0.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/main.js') }}"></script>
 
 </body>
 

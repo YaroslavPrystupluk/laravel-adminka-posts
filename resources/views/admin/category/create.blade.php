@@ -7,8 +7,8 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
-            <li class="breadcrumb-item"><a href={{ route('adnin.main.index') }}>Home</a></li>
-            <li class="breadcrumb-item " aria-current="page"><a href={{ route('categories.index') }}>Categories</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('adnin.main.index') }}">Home</a></li>
+            <li class="breadcrumb-item " aria-current="page"><a href="{{ route('categories.index') }}">Categories</a></li>
             <li class="breadcrumb-item active" aria-current="page">New category</li>
         </ol>
     </div>
@@ -24,7 +24,7 @@
                         <div class="card-header">
                             <div class="card-title">Create category</div>
                         </div>
-                        <form action={{ route('categories.store') }} method="POST">
+                        <form action="{{ route('categories.store') }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="row mb-3">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success">Save</button>
-                                    <a class="btn float-end btn-warning" href={{ route('categories.index') }}>Cancel</a>
+                                    <a class="btn float-end btn-warning" href="{{ route('categories.index') }}">Cancel</a>
                                 </div>
                             </div>
                         </form>

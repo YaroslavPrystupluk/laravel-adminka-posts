@@ -24,25 +24,25 @@
                         <div class="card-header">
                             <div class="card-title">Edit category</div>
                         </div>
-                        <form method="POST" action={{ route('categories.store', ['category' => $category->id])}} >
+                        <form method="POST" action="{{ route('categories.store', ['category' => $category->id])}}" >
                             @csrf
                             @method('PUT')
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <label for="title" class="col-sm-2 col-form-label">Title</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="title" class="form-control" id="title" value={{ $category->title }}>
+                                        <input type="text" name="title" class="form-control" id="title" value="{{ $category->title }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="meta_desc" class="col-sm-2 col-form-label">Meta description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="meta_desc" class="form-control" id="meta_desc" value={{ $category->meta_desc }}>
+                                        <input type="text" name="meta_desc" class="form-control" id="meta_desc" value="{{ $category->meta_desc }}">
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success">Save</button>
-                                    <a class="btn float-end btn-warning" href={{ route('categories.index') }}>Cancel</a>
+                                    <a class="btn float-end btn-warning" href="{{ route('categories.index') }}">Cancel</a>
                                 </div>
                             </div>
                         </form>

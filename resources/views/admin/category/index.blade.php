@@ -7,7 +7,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
-            <li class="breadcrumb-item"><a href={{ route('adnin.main.index') }}>Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('adnin.main.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Categories</li>
         </ol>
     </div>
@@ -21,7 +21,7 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <a class="btn btn-primary" href={{ route('categories.create') }}>Create category</a>
+                            <a class="btn btn-primary" href="{{ route('categories.create') }}">Create category</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -39,9 +39,9 @@
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->title }}</td>
                                             <td class="d-flex gap-2">
-                                                <a class="btn btn-warning" href={{ route('categories.edit', ['category' => $category->id]) }}
+                                                <a class="btn btn-warning" href="{{ route('categories.edit', ['category' => $category->id]) }}"
                                                     ><i class="bi bi-pencil"></i></a>
-                                                <form method="POST" action={{ route('categories.destroy', ['category' => $category->id]) }}>
+                                                <form method="POST" action="{{ route('categories.destroy', ['category' => $category->id]) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                 <button class="btn btn-danger" onclick="return confirm('Confirm delete')"><i class="bi bi-trash"></i></button>
