@@ -29,8 +29,10 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 10px" scope="col">Id</th>
+                                        <th scope="col">Image</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Category</th>
+                                        <th scope="col">Views</th>
                                         <th style="width: 150px" scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -43,12 +45,16 @@
                                             <td>{{ $post->category->title }}</td>
                                             <td>{{ $post->views }}</td>
                                             <td class="d-flex gap-2">
-                                                <a class="btn btn-warning" href="{{ route('posts.edit', ['post' => $post->id]) }}"
-                                                    ><i class="bi bi-pencil"></i></a>
-                                                <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
+                                                <a class="btn btn-warning"
+                                                    href="{{ route('posts.edit', ['post' => $post->id]) }}"><i
+                                                        class="bi bi-pencil"></i></a>
+                                                <form method="POST"
+                                                    action="{{ route('posts.destroy', ['post' => $post->id]) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                <button class="btn btn-danger" onclick="return confirm('Confirm delete')"><i class="bi bi-trash"></i></button>
+                                                    <button class="btn btn-danger"
+                                                        onclick="return confirm('Confirm delete')"><i
+                                                            class="bi bi-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

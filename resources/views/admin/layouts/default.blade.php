@@ -303,12 +303,12 @@
                                 <p>Categories</p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('posts.index') }}" class="nav-link">
                                 <i class="bi bi-pencil-square"></i>
                                 <p>Posts</p>
                             </a>
-                        </li> --}}
+                        </li>
                     </ul>
                     <!--end::Sidebar Menu-->
                 </nav>
