@@ -1,15 +1,15 @@
 @extends('admin.layouts.default')
-@section('title', 'Categories')
+@section('title', 'Edit Category')
 @section('content')
 
     <div class="col-sm-6">
-        <h3 class="mb-0">Categories</h3>
+        <h3 class="mb-0">Edit category</h3>
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href={{ route('adnin.main.index') }}>Home</a></li>
             <li class="breadcrumb-item " aria-current="page"><a href={{ route('categories.index') }}>Categories</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit category: <strong>{{ $category->title }}</strong></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit category</strong></li>
         </ol>
     </div>
     <!--end::App Content Header-->
@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="card card-warning card-outline mb-4">
                         <div class="card-header">
-                            <div class="card-title">Edit category</div>
+                            <div class="card-title">Edit category: <strong>{{ $category->title }}</div>
                         </div>
                         <form method="POST" action="{{ route('categories.update', ['category' => $category->id]) }}">
                             @csrf

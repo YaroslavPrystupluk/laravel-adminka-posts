@@ -38,8 +38,10 @@
                                     @foreach ($posts as $post)
                                         <tr class="align-middle">
                                             <td>{{ $post->id }}</td>
+                                            <td>{{ $post->thumb }}</td>
                                             <td>{{ $post->title }}</td>
                                             <td>{{ $post->category->title }}</td>
+                                            <td>{{ $post->views }}</td>
                                             <td class="d-flex gap-2">
                                                 <a class="btn btn-warning" href="{{ route('posts.edit', ['post' => $post->id]) }}"
                                                     ><i class="bi bi-pencil"></i></a>

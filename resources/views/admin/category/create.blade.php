@@ -1,15 +1,15 @@
 @extends('admin.layouts.default')
-@section('title', 'Categories')
+@section('title', 'Create category')
 @section('content')
 
     <div class="col-sm-6">
-        <h3 class="mb-0">Categories</h3>
+        <h3 class="mb-0">Create category</h3>
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href="{{ route('adnin.main.index') }}">Home</a></li>
             <li class="breadcrumb-item " aria-current="page"><a href="{{ route('categories.index') }}">Categories</a></li>
-            <li class="breadcrumb-item active" aria-current="page">New category</li>
+            <li class="breadcrumb-item active" aria-current="page">Create category</li>
         </ol>
     </div>
     <!--end::App Content Header-->

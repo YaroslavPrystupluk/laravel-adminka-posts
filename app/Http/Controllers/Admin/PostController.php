@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::query()->with('category')->paginate(1);
+        $posts = Post::query()->with('category')->paginate();
         return view('admin.post.index', ['posts' => $posts]);
     }
 
@@ -22,7 +23,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::query()->pluck('title', 'id')->all();
+        return view('admin.post.create', ['categories' => $categories]);
     }
 
     /**
@@ -30,7 +32,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'max:255'],
+            'meta_desc' => ['nullable', 'max:255'],
+            'content' => ['required'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'thumb' => ['nullable', 'max:255'],
+        ]);
+
+        Post::query()->create($validated);
+        return redirect()->route('posts.index')->with('success', 'Create post is successfully');
     }
 
     /**
