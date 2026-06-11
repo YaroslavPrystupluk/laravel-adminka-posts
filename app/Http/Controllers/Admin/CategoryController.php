@@ -79,6 +79,9 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $categories = Category::query()->findOrFail($id);
+        if ($categories->posts()->exists()) {
+            return redirect()->route('categories.index')->with('error', 'Delete category is failed. Category has posts.');
+        }
         $categories->delete();
         return redirect()->route('categories.index')->with('success', 'Delete category is successfully');
     }
