@@ -10,11 +10,13 @@ $(document).on('click','.popup_selector',function (event) {
         fastIframe: true,
         iframe: true,
         width: '70%',
-        height: '50%'
+        height: '100%'
     });
 
 });
 // function to update the file selected by elfinder
 function processSelectedFile(filePath, requestingField) {
-    $('#' + requestingField).val(filePath).trigger('change');
+    let fileUrl = filePath.replace(/\\/g, '/');
+    $('#' + requestingField).val(fileUrl).trigger('change');
+    $('.post-thumb').html(`<img src="/${fileUrl}" alt="Image" width="200" class="img-fluid">`);
 }

@@ -28,6 +28,7 @@
         crossorigin="anonymous" />
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/colorbox/colorbox.css') }}" />
 </head>
 <style>
     /*.cke_notification_area {*/
@@ -389,6 +390,8 @@
     <script src="{{ asset('assets/jquery-4.0.0.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/main.js') }}"></script>
     <script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/admin/colorbox/jquery.colorbox-min.js') }}"></script>
+    <script src="{{ asset('packages/barryvdh/elfinder/js/standalonepopup.js') }}"></script>
 
 </body>
 

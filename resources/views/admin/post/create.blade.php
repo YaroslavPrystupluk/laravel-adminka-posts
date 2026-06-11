@@ -71,7 +71,10 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <button type="button" class="btn btn-outline-primary">Post Image</button>
+{{--                                    <label for="thumb">Feature Image</label>--}}
+                                    <input type="hidden" id="thumb" name="thumb" value="">
+                                    <button type="button" class="btn btn-outline-primary popup_selector" data-inputid="thumb">Post Image</button>
+                                <div class="post-thumb mt-3"></div>
                                 </div>
                             </div>
 
