@@ -27,15 +27,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
         crossorigin="anonymous" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/styles/overlayscrollbars.min.css"
+        integrity="sha256-dSokZseQNT08wYEWiz5iLI8QPlKxG+TswNRD8k35cpg=" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/admin/colorbox/colorbox.css') }}" />
 </head>
 <style>
-    /*.cke_notification_area {*/
-    /*    display: none;*/
-    /*}*/
+    .cke_notifications_area {
+        display: none;
+    }
+
     label.required::before {
-        content: "*";
+        content: "* ";
         color: #ff0000;
         font-weight: 700;
     }
@@ -283,7 +287,7 @@
             <!--begin::Sidebar Brand-->
             <div class="sidebar-brand">
                 <!--begin::Brand Link-->
-                <a href="{{ route('adnin.main.index') }}" class="brand-link">
+                <a href="{{ route('admin.main.index') }}" class="brand-link">
                     <!--begin::Brand Image-->
                     <img src="{{ asset('assets/admin/assets/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                         class="brand-image opacity-75 shadow" />
@@ -303,7 +307,7 @@
                     <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation"
                         aria-label="Main navigation" data-accordion="false" id="navigation">
                         <li class="nav-item">
-                            <a href="{{ route('adnin.main.index') }}" class="nav-link">
+                            <a href="{{ route('admin.main.index') }}" class="nav-link">
                                 <i class="nav-icon bi bi-speedometer"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -384,14 +388,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous">
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js"
+        integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
     <script src="{{ asset('assets/admin/js/adminlte.js') }}"></script>
-    <script src="{{ asset('assets/jquery-4.0.0.min.js') }}"></script>
-    <script src="{{ asset('assets/admin/js/main.js') }}"></script>
+    <script src="{{ asset('assets/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('assets/admin/colorbox/jquery.colorbox-min.js') }}"></script>
     <script src="{{ asset('packages/barryvdh/elfinder/js/standalonepopup.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/main.js') }}"></script>
 
 </body>
 

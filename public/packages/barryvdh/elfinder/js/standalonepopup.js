@@ -1,7 +1,7 @@
-$(document).on('click','.popup_selector',function (event) {
+$(document).on("click", ".popup_selector", function (event) {
     event.preventDefault();
-    var updateID = $(this).attr('data-inputid'); // Btn id clicked
-    var elfinderUrl = '/elfinder/popup/';
+    var updateID = $(this).attr("data-inputid"); // Btn id clicked
+    var elfinderUrl = "/elfinder/popup/";
 
     // trigger the reveal modal with elfinder inside
     var triggerUrl = elfinderUrl + updateID;
@@ -9,14 +9,15 @@ $(document).on('click','.popup_selector',function (event) {
         href: triggerUrl,
         fastIframe: true,
         iframe: true,
-        width: '70%',
-        height: '100%'
+        width: "70%",
+        height: "100%",
     });
-
 });
 // function to update the file selected by elfinder
 function processSelectedFile(filePath, requestingField) {
-    let fileUrl = filePath.replace(/\\/g, '/');
-    $('#' + requestingField).val(fileUrl).trigger('change');
-    $('.post-thumb').html(`<img src="/${fileUrl}" alt="Image" width="200" class="img-fluid">`);
+    let fileUrl = filePath.replace(/\\/g, "/");
+    $("#" + requestingField)
+        .val(fileUrl)
+        .trigger("change");
+    $(".post-thumb").html(`<img src="/${fileUrl}" alt="" width="200">`);
 }

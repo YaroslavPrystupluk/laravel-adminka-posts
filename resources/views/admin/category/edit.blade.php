@@ -7,7 +7,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
-            <li class="breadcrumb-item"><a href={{ route('adnin.main.index') }}>Home</a></li>
+            <li class="breadcrumb-item"><a href={{ route('admin.main.index') }}>Home</a></li>
             <li class="breadcrumb-item " aria-current="page"><a href={{ route('categories.index') }}>Categories</a></li>
             <li class="breadcrumb-item active" aria-current="page">Edit category</strong></li>
         </ol>

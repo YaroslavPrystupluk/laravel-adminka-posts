@@ -23,7 +23,7 @@ class UserController extends Controller
 
         if (Auth::attempt($validated)) {
             if (Auth::user()->is_admin) {
-                return redirect()->route('adnin.main.index');
+                return redirect()->route('admin.main.index');
             } else {
                 return redirect('home');
             }

@@ -7,7 +7,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
-            <li class="breadcrumb-item"><a href="{{ route('adnin.main.index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Home</a></li>
             <li class="breadcrumb-item " aria-current="page"><a href="{{ route('posts.index') }}">Posts</a></li>
             <li class="breadcrumb-item active" aria-current="page">Create post</li>
         </ol>
@@ -31,21 +31,19 @@
                                     <label for="title" class="form-label required">Post
                                         name</label>
                                     <input type="text" name="title" class="form-control" id="title"
-                                           value="{{ old('title') }}">
+                                        value="{{ old('title') }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="meta_desc" class="form-label">Meta
                                         description</label>
                                     <input type="text" name="meta_desc" class="form-control" id="meta_desc"
-                                           value="{{ old('meta_desc') }}">
+                                        value="{{ old('meta_desc') }}">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="content"
-                                           class="form-label required">Content</label>
-                                    <textarea class="form-control ckeditor" name="content" id="content" cols="30"
-                                              rows="10">{{ old('content') }}</textarea>
+                                    <label for="content" class="form-label required">Content</label>
+                                    <textarea class="form-control ckeditor" name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
                                 </div>
 
                             </div>
@@ -61,20 +59,19 @@
                             <div class="card-body">
 
                                 <div class="mb-3">
-                                    <label for="category_id"
-                                           class="form-label required">Category</label>
+                                    <label for="category_id" class="form-label required">Category</label>
                                     <select name="category_id" id="category_id" class="form-select">
-                                        @foreach($categories as $category_id => $category_title)
+                                        @foreach ($categories as $category_id => $category_title)
                                             <option value="{{ $category_id }}">{{ $category_title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
-{{--                                    <label for="thumb">Feature Image</label>--}}
                                     <input type="hidden" id="thumb" name="thumb" value="">
-                                    <button type="button" class="btn btn-outline-primary popup_selector" data-inputid="thumb">Post Image</button>
-                                <div class="post-thumb mt-3"></div>
+                                    <button type="button" class="btn btn-outline-primary popup_selector"
+                                        data-inputid="thumb">Post Image</button>
+                                    <div class="post-thumb mt-3"></div>
                                 </div>
                             </div>
 

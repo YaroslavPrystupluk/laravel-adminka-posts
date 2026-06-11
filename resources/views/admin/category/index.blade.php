@@ -7,7 +7,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
-            <li class="breadcrumb-item"><a href="{{ route('adnin.main.index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Categories</li>
         </ol>
     </div>
@@ -39,12 +39,16 @@
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->title }}</td>
                                             <td class="d-flex gap-2">
-                                                <a class="btn btn-warning" href="{{ route('categories.edit', ['category' => $category->id]) }}"
-                                                    ><i class="bi bi-pencil"></i></a>
-                                                <form method="POST" action="{{ route('categories.destroy', ['category' => $category->id]) }}">
+                                                <a class="btn btn-warning"
+                                                    href="{{ route('categories.edit', ['category' => $category->id]) }}"><i
+                                                        class="bi bi-pencil"></i></a>
+                                                <form method="POST"
+                                                    action="{{ route('categories.destroy', ['category' => $category->id]) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                <button class="btn btn-danger" onclick="return confirm('Confirm delete')"><i class="bi bi-trash"></i></button>
+                                                    <button class="btn btn-danger"
+                                                        onclick="return confirm('Confirm delete')"><i
+                                                            class="bi bi-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

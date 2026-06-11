@@ -17,7 +17,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::prefix('/admin')->middleware('admin')->group(function () {
-    Route::get('/', [MainController::class, 'index'])->name('adnin.main.index');
+    Route::get('/', [MainController::class, 'index'])->name('admin.main.index');
     Route::resource('/categories', CategoryController::class);
     Route::resource('/posts', PostController::class);
 });
