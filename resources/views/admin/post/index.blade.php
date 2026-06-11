@@ -30,6 +30,7 @@
                                     <tr>
                                         <th style="width: 10px" scope="col">Id</th>
                                         <th scope="col">Title</th>
+                                        <th scope="col">Thumb</th>
                                         <th scope="col">Category</th>
                                         <th style="width: 150px" scope="col">Action</th>
                                     </tr>
@@ -38,10 +39,16 @@
                                     @foreach ($posts as $post)
                                         <tr class="align-middle">
                                             <td>{{ $post->id }}</td>
-                                            <td>{{ $post->thumb }}</td>
+{{--                                            <td>--}}
+{{--                                                @if($post->thumb)--}}
+{{--                                                    <img src="/{{ $post->thumb }}" alt="logo post">--}}
+{{--                                                @else--}}
+{{--                                                    <i class="bi bi-image"></i>--}}
+{{--                                                @endif--}}
+{{--                                            </td>--}}
+                                            <td><img src="/{{ $post->thumb ?: env('NO_IMAGE', 'no-image.png') }}" alt="logo post" height="50"/> </td>
                                             <td>{{ $post->title }}</td>
                                             <td>{{ $post->category->title }}</td>
-                                            <td>{{ $post->views }}</td>
                                             <td class="d-flex gap-2">
                                                 <a class="btn btn-warning" href="{{ route('posts.edit', ['post' => $post->id]) }}"
                                                     ><i class="bi bi-pencil"></i></a>
