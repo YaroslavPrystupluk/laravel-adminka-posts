@@ -29,6 +29,16 @@
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/adminlte.css') }}" />
 </head>
+<style>
+    /*.cke_notification_area {*/
+    /*    display: none;*/
+    /*}*/
+    label.required::before {
+        content: "*";
+        color: #ff0000;
+        font-weight: 700;
+    }
+</style>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <div class="app-wrapper">
@@ -303,12 +313,12 @@
                                 <p>Categories</p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
+                         <li class="nav-item">
                             <a href="{{ route('posts.index') }}" class="nav-link">
                                 <i class="bi bi-pencil-square"></i>
                                 <p>Posts</p>
                             </a>
-                        </li> --}}
+                        </li>
                     </ul>
                     <!--end::Sidebar Menu-->
                 </nav>
@@ -378,6 +388,7 @@
     <script src="{{ asset('assets/admin/js/adminlte.js') }}"></script>
     <script src="{{ asset('assets/jquery-4.0.0.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/main.js') }}"></script>
+    <script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
 
 </body>
 
