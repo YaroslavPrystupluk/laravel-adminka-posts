@@ -29,7 +29,7 @@
                             @method('PUT')
                             <div class="card-body">
                                 <div class="row mb-3">
-                                    <label for="title" class="col-sm-2 col-form-label">Title</label>
+                                    <label for="title" class="col-sm-2 col-form-label required">Title</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="title" class="form-control" id="title"
                                             value="{{ $category->title }}">
