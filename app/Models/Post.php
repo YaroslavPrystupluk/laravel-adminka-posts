@@ -16,6 +16,7 @@ class Post extends Model
         'content',
         'category_id',
         'views',
+        'thumb'
     ];
 
     public function sluggable(): array

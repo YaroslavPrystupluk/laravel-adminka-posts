@@ -68,7 +68,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <input type="hidden" id="thumb" name="thumb" value="">
+                                    <input id="thumb" name="thumb" value="">
                                     <button type="button" class="btn btn-outline-primary popup_selector"
                                         data-inputid="thumb">Post Image</button>
                                     <div class="post-thumb mt-3"></div>
