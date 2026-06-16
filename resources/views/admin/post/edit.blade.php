@@ -1,15 +1,15 @@
 @extends('admin.layouts.default')
-@section('title', 'Create post')
+@section('title', 'Edit post')
 @section('content')
 
     <div class="col-sm-6">
-        <h3 class="mb-0">Create post</h3>
+        <h3 class="mb-0">Edit post</h3>
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Home</a></li>
             <li class="breadcrumb-item " aria-current="page"><a href="{{ route('posts.index') }}">Posts</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><strong>Create post</strong></li>
+            <li class="breadcrumb-item active" aria-current="page"><strong>Edit post</strong></li>
         </ol>
     </div>
     <!--end::App Content Header-->
@@ -17,7 +17,7 @@
     <div class="app-content">
         <!--begin::Container-->
         <div class="container-fluid">
-            <form method="post" action="{{ route('posts.store') }}">
+            <form method="post" action="{{ route('posts.update') }}">
                 @csrf
                 <div class="row"> <!--begin::Col-->
 
@@ -31,19 +31,20 @@
                                     <label for="title" class="form-label required">Post
                                         name</label>
                                     <input type="text" name="title" class="form-control" id="title"
-                                        value="{{ old('title') }}">
+                                           value="{{ $post->title }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="meta_desc" class="form-label">Meta
                                         description</label>
                                     <input type="text" name="meta_desc" class="form-control" id="meta_desc"
-                                        value="{{ old('meta_desc') }}">
+                                           value="{{ $post->meta_desc) }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="content" class="form-label required">Content</label>
-                                    <textarea class="form-control ckeditor" name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
+                                    <textarea class="form-control ckeditor" name="content" id="content" cols="30"
+                                              rows="10">{{ $post->content }}</textarea>
                                 </div>
 
                             </div>
@@ -62,15 +63,20 @@
                                     <label for="category_id" class="form-label required">Category</label>
                                     <select name="category_id" id="category_id" class="form-select">
                                         @foreach ($categories as $category_id => $category_title)
-                                            <option value="{{ $category_id }}">{{ $category_title }}</option>
+                                            <option
+                                                value="{{ $category_id }}"
+                                                @selected($post->$category_id == $category_id)>
+                                                {{ $category_title }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
-                                    <input id="thumb" name="thumb" value="">
+                                    <input id="thumb" name="thumb" value={{$post->thumb}}>
                                     <button type="button" class="btn btn-outline-primary popup_selector"
-                                        data-inputid="thumb">Post Image</button>
+                                            data-inputid="thumb">Post Image
+                                    </button>
                                     <div class="post-thumb mt-3"></div>
                                 </div>
                             </div>

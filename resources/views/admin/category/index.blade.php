@@ -8,7 +8,7 @@
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Categories</li>
+            <li class="breadcrumb-item active" aria-current="page"><strong>Categories</strong></li>
         </ol>
     </div>
     <!--end::App Content Header-->

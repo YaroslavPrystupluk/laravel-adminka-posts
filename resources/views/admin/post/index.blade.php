@@ -8,7 +8,7 @@
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Posts</li>
+            <li class="breadcrumb-item active" aria-current="page"><strong>Posts</strong></li>
         </ol>
     </div>
     <!--end::App Content Header-->
@@ -22,7 +22,9 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <a class="btn btn-primary" href="{{ route('posts.create') }}">Create post</a>
+                            <a class="btn btn-danger " href="{{ route('admin.posts.basket') }}">Basket <span class="badge text-bg-light rounded-pill">{{$basket_cnt}}</span></a>
                         </div>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered" role="table">

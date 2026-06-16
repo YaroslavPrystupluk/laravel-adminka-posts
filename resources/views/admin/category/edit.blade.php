@@ -9,7 +9,7 @@
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href={{ route('admin.main.index') }}>Home</a></li>
             <li class="breadcrumb-item " aria-current="page"><a href={{ route('categories.index') }}>Categories</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit category</strong></li>
+            <li class="breadcrumb-item active" aria-current="page"><strong>Edit category</strong></li>
         </ol>
     </div>
     <!--end::App Content Header-->
