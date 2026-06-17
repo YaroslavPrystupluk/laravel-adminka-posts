@@ -21,7 +21,27 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <a class="btn btn-primary" href="{{ route('posts.index') }}">Back to posts</a>
+                            <a class="btn btn-primary mb-3" href="{{ route('posts.index') }}"><i
+                                    class="bi bi-arrow-left"></i>
+                                Back to posts</a>
+                            <div class="d-flex gap-2">
+                                <form id="actionsAllForm" method="POST"
+                                    action="{{ route('admin.posts.basket.restore-all') }}">
+                                    @csrf
+
+                                    <button type="submit" class="btn btn-info"><i class="bi bi-recycle"></i> Restore
+                                        selected</button>
+                                </form>
+
+                                <form id="actionsAllForm" method="POST"
+                                    action="{{ route('admin.posts.basket.destroy-all') }}"
+                                    onsubmit="return confirm('Confirm delete')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Delete
+                                        selected</button>
+                                </form>
+                            </div>
                         </div>
 
                         <div class="card-body">
@@ -29,7 +49,8 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" style="width: 40px;">
-                                            <input class="form-check-input" type="checkbox" id="selectAll">
+                                            <input form="actionsAllForm" class="form-check-input" type="checkbox"
+                                                id="selectAll">
                                         </th>
                                         <th style="width: 10px" scope="col">Id</th>
                                         <th scope="col">Image</th>
@@ -44,7 +65,8 @@
                                     @foreach ($posts as $post)
                                         <tr class="align-middle">
                                             <td style="width: 40px;">
-                                                <input name="ids[]" class="form-check-input row-checkbox" type="checkbox"
+                                                <input form="actionsAllForm" name="ids[]"
+                                                    class="form-check-input row-checkbox" type="checkbox"
                                                     value="{{ $post->id }}">
                                             </td>
                                             <td>{{ $post->id }}</td>
@@ -82,4 +104,20 @@
             </div>
             <!--end::Small Box Widget 4-->
         </div>
+
+        <script>
+            const selectAll = document.getElementById('selectAll');
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+
+            selectAll.addEventListener('change', function() {
+                rowCheckboxes.forEach(cb => cb.checked = this.checked);
+            });
+
+            rowCheckboxes.forEach(cb => {
+                cb.addEventListener('change', function() {
+                    const allChecked = Array.from(rowCheckboxes).every(c => c.checked);
+                    selectAll.checked = allChecked;
+                });
+            });
+        </script>
     @endsection

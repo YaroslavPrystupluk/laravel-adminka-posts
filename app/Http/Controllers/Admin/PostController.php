@@ -117,8 +117,8 @@ class PostController extends Controller
     public function basketRestoreAll(Request $request)
     {
         $validated = $request->validate([
-            'ids' => 'required|array',
-            'ids.*' => 'integer|exists:posts,id',
+            'ids' => ['required', 'array'],
+            'ids.*' => ['integer', 'exists:posts,id'],
         ]);
 
         Post::withTrashed()->whereIn('id', $validated['ids'])->restore();
@@ -132,8 +132,8 @@ class PostController extends Controller
     public function basketDestroyAll(Request $request)
     {
         $validated = $request->validate([
-            'ids' => 'required|array',
-            'ids.*' => 'integer|exists:posts,id',
+            'ids' => ['required', 'array'],
+            'ids.*' => ['integer', 'exists:posts,id'],
         ]);
 
         Post::withTrashed()->whereIn('id', $validated['ids'])->forceDelete();

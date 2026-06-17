@@ -21,7 +21,8 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <a class="btn btn-primary" href="{{ route('categories.create') }}">Create category</a>
+                            <a class="btn btn-primary" href="{{ route('categories.create') }}"><i class="bi bi-plus"></i>
+                                Create category</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

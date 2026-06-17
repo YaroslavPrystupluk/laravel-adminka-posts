@@ -21,8 +21,10 @@
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <a class="btn btn-primary" href="{{ route('posts.create') }}">Create post</a>
-                            <a class="btn btn-danger " href="{{ route('admin.posts.basket') }}">Basket <span class="badge text-bg-light rounded-pill">{{$basket_cnt}}</span></a>
+                            <a class="btn btn-primary" href="{{ route('posts.create') }}"><i class="bi bi-plus"></i> Create
+                                post</a>
+                            <a class="btn btn-danger " href="{{ route('admin.posts.basket') }}"><i class="bi bi-basket"></i>
+                                Basket <span class="badge text-bg-light rounded-pill">{{ $basket_cnt }}</span></a>
                         </div>
 
                         <!-- /.card-header -->
