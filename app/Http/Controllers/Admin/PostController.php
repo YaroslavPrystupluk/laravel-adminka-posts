@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::query()->with('category')->paginate();
-        $basket_cnt = Post::withTrashed()->count();
+        $basket_cnt = Post::onlyTrashed()->count();
         return view('admin.post.index', ['posts' => $posts, 'basket_cnt' => $basket_cnt]);
     }
 
@@ -59,8 +59,9 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $post = Post::query()->findOrFail($id);
+        $categories = Category::query()->pluck('title', 'id')->all();
 
-        return view('admin.post.edit', ['post' => $post]);
+        return view('admin.post.edit', ['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -92,7 +93,7 @@ class PostController extends Controller
 
     public function basket()
     {
-        $posts = Post::withTrashed()->paginate();
+        $posts = Post::onlyTrashed()->with('category')->paginate();
         return view('admin.post.basket', ['posts' => $posts]);
     }
 

@@ -17,8 +17,9 @@
     <div class="app-content">
         <!--begin::Container-->
         <div class="container-fluid">
-            <form method="post" action="{{ route('posts.update') }}">
+            <form method="post" action="{{ route('posts.update', ['post' => $post->id]) }}">
                 @csrf
+                @method('PUT')
                 <div class="row"> <!--begin::Col-->
 
                     <div class="col-md-8">
@@ -31,20 +32,19 @@
                                     <label for="title" class="form-label required">Post
                                         name</label>
                                     <input type="text" name="title" class="form-control" id="title"
-                                           value="{{ $post->title }}">
+                                        value="{{ $post->title }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="meta_desc" class="form-label">Meta
                                         description</label>
                                     <input type="text" name="meta_desc" class="form-control" id="meta_desc"
-                                           value="{{ $post->meta_desc) }}">
+                                        value="{{ $post->meta_desc }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="content" class="form-label required">Content</label>
-                                    <textarea class="form-control ckeditor" name="content" id="content" cols="30"
-                                              rows="10">{{ $post->content }}</textarea>
+                                    <textarea class="form-control ckeditor" name="content" id="content" cols="30" rows="10">{{ $post->content }}</textarea>
                                 </div>
 
                             </div>
@@ -63,9 +63,7 @@
                                     <label for="category_id" class="form-label required">Category</label>
                                     <select name="category_id" id="category_id" class="form-select">
                                         @foreach ($categories as $category_id => $category_title)
-                                            <option
-                                                value="{{ $category_id }}"
-                                                @selected($post->$category_id == $category_id)>
+                                            <option value="{{ $category_id }}" @selected($post->$category_id == $category_id)>
                                                 {{ $category_title }}
                                             </option>
                                         @endforeach
@@ -73,9 +71,9 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <input id="thumb" name="thumb" value={{$post->thumb}}>
+                                    <input id="thumb" name="thumb" value={{ $post->thumb }}>
                                     <button type="button" class="btn btn-outline-primary popup_selector"
-                                            data-inputid="thumb">Post Image
+                                        data-inputid="thumb">Post Image
                                     </button>
                                     <div class="post-thumb mt-3"></div>
                                 </div>

@@ -27,48 +27,48 @@
                         <div class="card-body">
                             <table class="table table-bordered" role="table">
                                 <thead>
-                                <tr>
-                                    <th scope="col" style="width: 40px;">
-                                        <input class="form-check-input" type="checkbox" id="selectAll">
-                                    </th>
-                                    <th style="width: 10px" scope="col">Id</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Views</th>
-                                    <th scope="col">Deleted</th>
-                                    <th style="width: 150px" scope="col">Action</th>
-                                </tr>
+                                    <tr>
+                                        <th scope="col" style="width: 40px;">
+                                            <input class="form-check-input" type="checkbox" id="selectAll">
+                                        </th>
+                                        <th style="width: 10px" scope="col">Id</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Views</th>
+                                        <th scope="col">Deleted</th>
+                                        <th style="width: 150px" scope="col">Action</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($posts as $post)
-                                    <tr class="align-middle">
-                                        <td style="width: 40px;">
-                                            <input name="ids[]" class="form-check-input row-checkbox" type="checkbox"
-                                                   value="{{$post->id}}">
-                                        </td>
-                                        <td>{{ $post->id }}</td>
-                                        <td><img src="/{{ $post->thumb ?: env('NO_IMAGE', 'no-image.png') }}"
-                                                 alt="logo post" height="40"/></td>
-                                        <td>{{ $post->title }}</td>
-                                        <td>{{ $post->category->title }}</td>
-                                        <td>{{ $post->views }}</td>
-                                        <td>{{ $post->deleted_at }}</td>
-                                        <td class="d-flex gap-2">
-                                            <a class="btn btn-info"
-                                               href="{{ route('admin.posts.basket.restore', ['post' => $post->id]) }}"><i
-                                                    class="bi bi-recycle"></i></a>
-                                            <form method="POST"
-                                                  action="{{ route('posts.destroy', ['post' => $post->id]) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger"
+                                    @foreach ($posts as $post)
+                                        <tr class="align-middle">
+                                            <td style="width: 40px;">
+                                                <input name="ids[]" class="form-check-input row-checkbox" type="checkbox"
+                                                    value="{{ $post->id }}">
+                                            </td>
+                                            <td>{{ $post->id }}</td>
+                                            <td><img src="/{{ $post->thumb ?: env('NO_IMAGE', 'no-image.png') }}"
+                                                    alt="logo post" height="40" /></td>
+                                            <td>{{ $post->title }}</td>
+                                            <td>{{ $post->category->title }}</td>
+                                            <td>{{ $post->views }}</td>
+                                            <td>{{ $post->deleted_at }}</td>
+                                            <td class="d-flex gap-2">
+                                                <a class="btn btn-info"
+                                                    href="{{ route('admin.posts.basket.restore', ['post' => $post->id]) }}"><i
+                                                        class="bi bi-recycle"></i></a>
+                                                <form method="POST"
+                                                    action="{{ route('admin.posts.basket.destroy', ['post' => $post->id]) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger"
                                                         onclick="return confirm('Confirm delete')"><i
-                                                        class="bi bi-trash"></i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                                            class="bi bi-trash"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -82,4 +82,4 @@
             </div>
             <!--end::Small Box Widget 4-->
         </div>
-@endsection
+    @endsection
