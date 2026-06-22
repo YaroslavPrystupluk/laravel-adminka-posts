@@ -121,7 +121,7 @@ class PostController extends Controller
             'ids.*' => ['integer', 'exists:posts,id'],
         ]);
 
-        Post::withTrashed()->whereIn('id', $validated['ids'])->restore();
+        Post::onlyTrashed()->whereIn('id', $validated['ids'])->restore();
 
         return redirect()->route('posts.index')->with(
             'success',
@@ -136,7 +136,7 @@ class PostController extends Controller
             'ids.*' => ['integer', 'exists:posts,id'],
         ]);
 
-        Post::withTrashed()->whereIn('id', $validated['ids'])->forceDelete();
+        Post::onlyTrashed()->whereIn('id', $validated['ids'])->forceDelete();
         return redirect()->route('admin.posts.basket')->with(
             'success',
             'All posts in the basket have been successfully deleted'

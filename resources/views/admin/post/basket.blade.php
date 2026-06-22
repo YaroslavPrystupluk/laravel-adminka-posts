@@ -14,34 +14,31 @@
     </div>
 
     <div class="app-content">
-
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <a class="btn btn-primary mb-3" href="{{ route('posts.index') }}"><i
-                                    class="bi bi-arrow-left"></i>
-                                Back to posts</a>
-                            <div class="d-flex gap-2">
-                                <form id="actionsAllForm" method="POST"
-                                    action="{{ route('admin.posts.basket.restore-all') }}">
-                                    @csrf
+                            <a class="btn btn-primary mb-3" href="{{ route('posts.index') }}">
+                                <i class="bi bi-arrow-left"></i> Back to posts
+                            </a>
 
-                                    <button type="submit" class="btn btn-info"><i class="bi bi-recycle"></i> Restore
-                                        selected</button>
-                                </form>
+                            <form id="actionsAllForm" method="POST" action="">
+                                @csrf
+                                <input type="hidden" name="_method" id="formMethod" value="POST">
 
-                                <form id="actionsAllForm" method="POST"
-                                    action="{{ route('admin.posts.basket.destroy-all') }}"
-                                    onsubmit="return confirm('Confirm delete')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Delete
-                                        selected</button>
-                                </form>
-                            </div>
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-info"
+                                        onclick="return submitBulk('{{ route('admin.posts.basket.restore-all') }}', 'POST', null)">
+                                        <i class="bi bi-recycle"></i> Restore selected
+                                    </button>
+
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return submitBulk('{{ route('admin.posts.basket.destroy-all') }}', 'DELETE', 'Confirm delete')">
+                                        <i class="bi bi-trash"></i> Delete selected
+                                    </button>
+                                </div>
+                            </form>
                         </div>
 
                         <div class="card-body">
@@ -49,8 +46,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" style="width: 40px;">
-                                            <input form="actionsAllForm" class="form-check-input" type="checkbox"
-                                                id="selectAll">
+                                            <input class="form-check-input" type="checkbox" id="selectAll">
                                         </th>
                                         <th style="width: 10px" scope="col">Id</th>
                                         <th scope="col">Image</th>
@@ -70,23 +66,27 @@
                                                     value="{{ $post->id }}">
                                             </td>
                                             <td>{{ $post->id }}</td>
-                                            <td><img src="/{{ $post->thumb ?: env('NO_IMAGE', 'no-image.png') }}"
-                                                    alt="logo post" height="40" /></td>
+                                            <td>
+                                                <img src="/{{ $post->thumb ?: env('NO_IMAGE', 'no-image.png') }}"
+                                                    alt="logo post" height="40" />
+                                            </td>
                                             <td>{{ $post->title }}</td>
                                             <td>{{ $post->category->title }}</td>
                                             <td>{{ $post->views }}</td>
                                             <td>{{ $post->deleted_at }}</td>
                                             <td class="d-flex gap-2">
                                                 <a class="btn btn-info"
-                                                    href="{{ route('admin.posts.basket.restore', ['post' => $post->id]) }}"><i
-                                                        class="bi bi-recycle"></i></a>
+                                                    href="{{ route('admin.posts.basket.restore', ['post' => $post->id]) }}">
+                                                    <i class="bi bi-recycle"></i>
+                                                </a>
                                                 <form method="POST"
                                                     action="{{ route('admin.posts.basket.destroy', ['post' => $post->id]) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger"
-                                                        onclick="return confirm('Confirm delete')"><i
-                                                            class="bi bi-trash"></i></button>
+                                                        onclick="return confirm('Confirm delete')">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -94,18 +94,26 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
+
                         <div class="card-footer clearfix">
                             {{ $posts->links('vendor.pagination.bootstrap-5-admin') }}
-
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Small Box Widget 4-->
         </div>
 
         <script>
+            function submitBulk(action, method, confirmMsg) {
+                if (confirmMsg && !confirm(confirmMsg)) return false;
+
+                const form = document.getElementById('actionsAllForm');
+                form.action = action;
+                document.getElementById('formMethod').value = method;
+
+                return true;
+            }
+
             const selectAll = document.getElementById('selectAll');
             const rowCheckboxes = document.querySelectorAll('.row-checkbox');
 
@@ -115,8 +123,7 @@
 
             rowCheckboxes.forEach(cb => {
                 cb.addEventListener('change', function() {
-                    const allChecked = Array.from(rowCheckboxes).every(c => c.checked);
-                    selectAll.checked = allChecked;
+                    selectAll.checked = Array.from(rowCheckboxes).every(c => c.checked);
                 });
             });
         </script>
